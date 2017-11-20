@@ -1,0 +1,20 @@
+.GenerateUrl-container {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 2px;
+}
+
+.GenerateUrl-container p {
+  margin-bottom: 20px;
+}
+
+.GenerateUrl-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.GenerateUrl-input-container {
+  position: relative;
+}

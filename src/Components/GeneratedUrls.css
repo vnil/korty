@@ -1,0 +1,24 @@
+.GeneratedUrls {
+  margin-top: 20px;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.GeneratedUrls table {
+  margin-top: 20px;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.GeneratedUrls table tr td {
+  padding: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.GeneratedUrls table tr td a {
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+}

@@ -1,0 +1,9 @@
+.Home {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.Home-header {
+  padding: 40px;
+  color: white;
+}
