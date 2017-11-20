@@ -9,10 +9,6 @@
   border-bottom-right-radius: 5px;
 }
 
-.Button .invalid {
-  background-color: #c0392b;
-}
-
 .Button:hover {
   background-color: #16a085;
   cursor: pointer;
@@ -20,4 +16,8 @@
 
 .Button:focus, .Button:active {
   outline: none;
+}
+
+.Button:active {
+  background-color: #1abc9c;
 }

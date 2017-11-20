@@ -5,13 +5,11 @@ import Input from './Input'
 import ErrorMessage from './ErrorMessage'
 import { isValidUrl } from '../Helpers/urlHelpers'
 
-const processValue = (value, setValid, generateUrl) => {
-  console.log('Processing...');
+const processValue = (value, setValid, updateValue, generateUrl) => {
   const valid = isValidUrl(value)
-  console.log('Valiid?', valid);
   if (valid) {
-    console.log('Generate!', value);
     generateUrl(value)
+    updateValue('')
   }
   setValid(valid)
 }
@@ -24,10 +22,11 @@ const GenerateUrl = ({value, updateValue, valid, setValid, generateUrl}) => (
         type="text"
         value={value}
         onChange={({target: {value}}) => updateValue(value)}
-        onBlur={() => processValue(value, setValid, generateUrl)}
+        onBlur={() => setValid(isValidUrl(value))}
+        onKeyPress={(e) => e.key == 'Enter' && processValue(value, setValid, updateValue, generateUrl)}
         placeholder="http://www.your-long-url.com/"
       />
-      <Button className="GenerateUrl-button" onClick={() => processValue(value, setValid, generateUrl)}>Do it!</Button>
+      <Button className="GenerateUrl-button" onClick={() => processValue(value, setValid, updateValue, generateUrl)}>Do it!</Button>
     </div>
     {!valid && <ErrorMessage>Please enter a valid URL and try again</ErrorMessage>}
   </div>

@@ -12,7 +12,7 @@ export const randomizeString = (length = 6) => {
 }
 
 export const isValidUrl = (potentialUrl) => {
-  return !!isWebUri(potentialUrl)
+  return !!isWebUri(potentialUrl) || potentialUrl === ''
 }
 
 export const generateUniqueUrlCode = (redirectObjects) => {

@@ -21,4 +21,5 @@
   text-overflow: ellipsis;
   display: block;
   overflow: hidden;
+  padding-bottom: 1px; /*letter 'g' get clipped at bottom without this fix */
 }

@@ -1,3 +1,5 @@
+//TODO: Rename reducer/file to redirects only?
+
 import { generateUniqueUrlCode } from '../Helpers/urlHelpers'
 
 // Actions
