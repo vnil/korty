@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch,
 } from 'react-router-dom'
 import Home from './Home'
+
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+
+import reducers from '../Redux/reducers'
+
+let store = createStore(reducers)
 
 const AppRouter = () => (
   <Router>
@@ -17,4 +23,10 @@ const AppRouter = () => (
   </Router>
 )
 
-export default AppRouter
+const App = () => (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+)
+
+export default App

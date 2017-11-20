@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './GenerateUrl.css'
-import Input from './Input'
 import Button from './Button'
+import GenerateUrlContainer from '../Containers/GenerateUrlContainer'
 
 const GenerateUrl = () => (
   <div className="GenerateUrl-container">
-    <p>Enter an URL to minify.</p>
+    <p>Enter a URL to kortify</p>
     <div className="GenerateUrl-input-container">
-      <Input type="text" placeholder="http://www.your-long-url.com/" />
+      <GenerateUrlContainer />
       <Button className="GenerateUrl-button">Do it!</Button>
     </div>
   </div>

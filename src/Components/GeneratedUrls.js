@@ -14,12 +14,12 @@ const UrlRow = ({mappedUrl}) => (
 
 const GeneratedUrls = ({mappedUrls}) => (
   <div className="GeneratedUrls">
-    <h2>Latest generated URLs</h2>
+    <h2>Latest kortified URLs</h2>
     <table>
       <thead>
         <tr>
-          <td>Korty Url</td>
-          <td>Long Url</td>
+          <td>Kortified URL</td>
+          <td>Target URL</td>
         </tr>
       </thead>
       <tbody>

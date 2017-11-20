@@ -1,19 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import GenerateUrl from './GenerateUrl'
-import GeneratedUrls from './GeneratedUrls'
+import ExistingUrlsContainer from '../Containers/ExistingUrlsContainer'
 import './Home.css'
 
 const Home = () => (
   <div className="Home">
-    <header className="Home-header">
+    <header>
       <h1>KORTY</h1>
     </header>
     <div className="Home-content">
       <GenerateUrl />
-      <GeneratedUrls mappedUrls={[
-        {kortyCode: 'abc', targetUrl: 'http://www.longy.com'},
-        {kortyCode: 'abc', targetUrl: 'http://www.longy.com/adsfssfeijns efjnifsnjifsenjefsnjife snjiefnjifesn ijfesnijfsenijfse'},
-      ]} />
+      <ExistingUrlsContainer />
     </div>
   </div>
 )
