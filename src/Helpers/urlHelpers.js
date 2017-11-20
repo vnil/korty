@@ -12,7 +12,7 @@ export const randomizeString = (length = 6) => {
 }
 
 export const isValidUrl = (potentialUrl) => {
-  return !!isWebUri(potentialUrl) || potentialUrl === ''
+  return !!isWebUri(potentialUrl)
 }
 
 export const generateUniqueUrlCode = (redirectObjects) => {
@@ -22,4 +22,8 @@ export const generateUniqueUrlCode = (redirectObjects) => {
     return generateUniqueUrlCode(redirectObjects)
   }
   return newCode
+}
+
+export const makeUrl = (kortyCode) => {
+  return window.location.host + '/' + kortyCode
 }

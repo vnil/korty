@@ -1,9 +1,7 @@
 import redirectObjects from './redirectObjects'
 import form from './form'
 
-import { combineReducers } from 'redux'
-
-export default combineReducers({
+export default {
   redirectObjects,
   form,
-})
+}

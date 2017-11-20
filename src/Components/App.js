@@ -5,14 +5,11 @@ import {
   Switch,
 } from 'react-router-dom'
 import Home from './Home'
-
 import { Provider } from 'react-redux'
-import { applyMiddleware, createStore } from 'redux'
-import logger from 'redux-logger'
+import createStore from '../Redux/createStore'
+import { PersistGate } from 'redux-persist/es/integration/react'
 
-import reducers from '../Redux/reducers'
-
-let store = createStore(reducers, applyMiddleware(logger))
+let { store, persistor} = createStore()
 
 const AppRouter = () => (
   <Router>
@@ -26,7 +23,9 @@ const AppRouter = () => (
 
 const App = () => (
   <Provider store={store}>
-    <AppRouter />
+    <PersistGate persistor={persistor}>
+      <AppRouter />
+    </PersistGate>
   </Provider>
 )
 

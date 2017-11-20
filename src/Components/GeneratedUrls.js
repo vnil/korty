@@ -1,10 +1,11 @@
 import React from 'react'
 import './GeneratedUrls.css'
+import { makeUrl } from '../Helpers/urlHelpers'
 
 const UrlRow = ({mappedUrl}) => (
   <tr>
     <td>
-      <a href={mappedUrl.kortyCode}>{window.location.host + '/' + mappedUrl.kortyCode}</a> {/* TODO: Global object */}
+      <a href={mappedUrl.kortyCode}>{makeUrl(mappedUrl.kortyCode)}</a> {/* TODO: Global object */}
     </td>
     <td>
       <a href={mappedUrl.targetUrl}>{mappedUrl.targetUrl}</a>

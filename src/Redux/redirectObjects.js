@@ -3,21 +3,17 @@
 import { generateUniqueUrlCode } from '../Helpers/urlHelpers'
 
 // Actions
-//const ADD_REDIRECT_OBJECT = 'korty/redirect-objects/add-redirect-object'
-const GENERATE_URL = 'korty/form/generate-url'
+const GENERATE_URL = 'korty/redirect-objects/generate-url'
+const RESET_NEWLY_GENERATED = 'korty/redirect-objects'
 
 // Initial State
 const initialState = {
   list: [],
+  newlyGenerated: null,
 }
 
 function listReducer(state = [], action = {}) {
   switch (action.type) {
-    // case ADD_REDIRECT_OBJECT:
-    //   return [
-    //     ...state,
-    //     action.redirectObject,
-    //   ]
     case GENERATE_URL:
       const uniqueCode = generateUniqueUrlCode(state)
       const newRedirectObject = {
@@ -36,17 +32,18 @@ function listReducer(state = [], action = {}) {
 // Reducers
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
-    // case ADD_REDIRECT_OBJECT:
-    //   return {
-    //     ...state,
-    //     list: listReducer(state.list, action)
-    //   }
     case GENERATE_URL:
+      const newList = listReducer(state.list, action)
       return {
         ...state,
-        list: listReducer(state.list, action)
+        list: newList,
+        newlyGenerated: newList[newList.length - 1],
       }
-
+    case RESET_NEWLY_GENERATED:
+      return {
+        ...state,
+        newlyGenerated: null,
+      }
     default:
       return state
   }
@@ -56,4 +53,8 @@ export default function reducer(state = initialState, action = {}) {
 export const generateUrl = (targetUrl) => ({
   type: GENERATE_URL,
   targetUrl,
+})
+
+export const resetNewlyGenerated = () => ({
+  type: RESET_NEWLY_GENERATED,
 })

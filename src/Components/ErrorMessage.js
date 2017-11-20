@@ -1,10 +1,10 @@
 import React from 'react'
 import './ErrorMessage.css'
 
-const ErrorMessage = ({children}) => (
-  <div className="ErrorMessage">
-    <span>{children}</span>
-  </div>
-)
+const ErrorMessage = ({show, children}) => show ? (
+    <div className="ErrorMessage">
+      <span>{children}</span>
+    </div>
+) : null
 
 export default ErrorMessage
