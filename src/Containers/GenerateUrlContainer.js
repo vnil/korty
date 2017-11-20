@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateValue, setValid } from '../Redux/form'
-import { generateUrl, resetNewlyGenerated } from '../Redux/redirectObjects'
+import { updateValue, setValid } from '../Redux/ducks/form'
+import { generateUrl, resetNewlyGenerated } from '../Redux/ducks/redirectObjects'
 import GenerateUrl from '../Components/GenerateUrl'
 
 const GenerateUrlContainer = ({value, updateValue, generateUrl, setValid, valid, newlyGenerated, resetNewlyGenerated}) => (

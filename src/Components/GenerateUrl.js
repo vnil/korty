@@ -1,8 +1,8 @@
 import React from 'react'
 import './GenerateUrl.css'
-import Button from './Button'
-import Input from './Input'
-import ErrorMessage from './ErrorMessage'
+import Button from './Common/Button'
+import Input from './Common/Input'
+import ErrorMessage from './Common/ErrorMessage'
 import FreshUrl from './FreshUrl'
 import { isValidUrl } from '../Helpers/urlHelpers'
 
