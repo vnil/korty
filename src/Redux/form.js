@@ -1,9 +1,10 @@
 // Actions
 const UPDATE_VALUE = 'korty/form/update-value'
+const SET_VALID = 'korty/form/set-valid'
 
 // Initial State
 const initialState = {
-  value: '',
+  value: 'http://www.your-long-url.com/',
   valid: true,
 }
 
@@ -13,8 +14,13 @@ export default function reducer(state = initialState, action = {}) {
     case UPDATE_VALUE:
       return {
         ...state,
-        value: action.value
+        value: action.value,
       }
+      case SET_VALID:
+        return {
+          ...state,
+          valid: action.valid,
+        }
     default:
       return state
   }
@@ -24,4 +30,9 @@ export default function reducer(state = initialState, action = {}) {
 export const updateValue = (value) => ({
   type: UPDATE_VALUE,
   value,
+})
+
+export const setValid = (valid) => ({
+  type: SET_VALID,
+  valid,
 })

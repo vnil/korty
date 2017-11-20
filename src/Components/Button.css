@@ -9,6 +9,10 @@
   border-bottom-right-radius: 5px;
 }
 
+.Button .invalid {
+  background-color: #c0392b;
+}
+
 .Button:hover {
   background-color: #16a085;
   cursor: pointer;

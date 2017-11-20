@@ -12,7 +12,7 @@ const UrlRow = ({mappedUrl}) => (
   </tr>
 )
 
-const GeneratedUrls = ({mappedUrls}) => (
+const GeneratedUrls = ({data}) => (
   <div className="GeneratedUrls">
     <h2>Latest kortified URLs</h2>
     <table>
@@ -23,7 +23,7 @@ const GeneratedUrls = ({mappedUrls}) => (
         </tr>
       </thead>
       <tbody>
-        {mappedUrls && mappedUrls.map(mappedUrl => <UrlRow mappedUrl={mappedUrl} />)}
+        {data && data.map(mappedUrl => <UrlRow mappedUrl={mappedUrl} key={mappedUrl.kortyCode} />)}
       </tbody>
     </table>
   </div>

@@ -1,4 +1,4 @@
-import { isUri } from 'valid-url'
+import { isWebUri } from 'valid-url'
 
 export const randomizeString = (length = 6) => {
   let text = ''
@@ -11,8 +11,15 @@ export const randomizeString = (length = 6) => {
   return text
 }
 
-//https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
-
 export const isValidUrl = (potentialUrl) => {
-  return isUri(potentialUrl)
+  return !!isWebUri(potentialUrl)
+}
+
+export const generateUniqueUrlCode = (redirectObjects) => {
+  const existingCodes = redirectObjects.map(obj => obj.kortyCode)
+  const newCode = randomizeString()
+  if (existingCodes.includes(newCode)) {
+    return generateUniqueUrlCode(redirectObjects)
+  }
+  return newCode
 }

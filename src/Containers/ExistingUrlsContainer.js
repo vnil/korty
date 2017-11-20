@@ -7,5 +7,5 @@ const ExistingUrlsContainer = ({redirectObjects}) => (
 )
 
 export default connect(state => ({
-  redirectObjects: state.redirectObjects,
+  redirectObjects: state.redirectObjects.list,
 }))(ExistingUrlsContainer)

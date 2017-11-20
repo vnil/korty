@@ -1,35 +1,57 @@
-//import { call, put, takeLatest } from 'redux-saga/effects'
+import { generateUniqueUrlCode } from '../Helpers/urlHelpers'
 
 // Actions
-const ADD_REDIRECT_OBJECT = 'korty/redirect-objects/add-redirect-object'
+//const ADD_REDIRECT_OBJECT = 'korty/redirect-objects/add-redirect-object'
+const GENERATE_URL = 'korty/form/generate-url'
 
 // Initial State
-const initialState = []
+const initialState = {
+  list: [],
+}
 
-// Reducers
-export default function reducer(state = initialState, action = {}) {
+function listReducer(state = [], action = {}) {
   switch (action.type) {
-    case ADD_REDIRECT_OBJECT:
-      return [...state, action.redirectObject]
+    // case ADD_REDIRECT_OBJECT:
+    //   return [
+    //     ...state,
+    //     action.redirectObject,
+    //   ]
+    case GENERATE_URL:
+      const uniqueCode = generateUniqueUrlCode(state)
+      const newRedirectObject = {
+        kortyCode: uniqueCode,
+        targetUrl: action.targetUrl,
+      }
+      return [
+        ...state,
+        newRedirectObject,
+      ]
     default:
       return state
   }
 }
 
-//Sagas
-// function* fetchInitialDataSaga() {
-//   try {
-//     yield put({ type: LOAD_INITIAL_DATA_STARTED })
-//   } catch (e) {
-//     yield put({ type: LOAD_INITIAL_DATA_FAILED })
-//   }
-// }
+// Reducers
+export default function reducer(state = initialState, action = {}) {
+  switch (action.type) {
+    // case ADD_REDIRECT_OBJECT:
+    //   return {
+    //     ...state,
+    //     list: listReducer(state.list, action)
+    //   }
+    case GENERATE_URL:
+      return {
+        ...state,
+        list: listReducer(state.list, action)
+      }
 
-// export function* sagas() {
-//   yield takeLatest(LOAD_INITIAL_DATA, fetchInitialDataSaga)
-// }
+    default:
+      return state
+  }
+}
 
 //Action Creators
-export const addRedirectObject = () => ({
-  type: ADD_REDIRECT_OBJECT,
+export const generateUrl = (targetUrl) => ({
+  type: GENERATE_URL,
+  targetUrl,
 })

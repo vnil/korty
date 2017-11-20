@@ -1,5 +1,5 @@
 import React from 'react'
-import GenerateUrl from './GenerateUrl'
+import GenerateUrlContainer from '../Containers/GenerateUrlContainer'
 import ExistingUrlsContainer from '../Containers/ExistingUrlsContainer'
 import './Home.css'
 
@@ -9,7 +9,7 @@ const Home = () => (
       <h1>KORTY</h1>
     </header>
     <div className="Home-content">
-      <GenerateUrl />
+      <GenerateUrlContainer />
       <ExistingUrlsContainer />
     </div>
   </div>
