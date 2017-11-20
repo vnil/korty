@@ -1,17 +1,23 @@
-import { applyMiddleware, createStore } from 'redux'
+import { applyMiddleware, createStore, combineReducers } from 'redux'
 import logger from 'redux-logger'
 import reducers from './reducers'
-import { persistStore, persistCombineReducers } from 'redux-persist'
-import storage from 'redux-persist/es/storage' // default: localStorage if web, AsyncStorage if react-native
-//import reducers from './reducers' // where reducers is an object of reducers
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/es/storage'
+import redirectObjects from './redirectObjects'
+import form from './form'
+
 
 const config = {
   key: 'root',
   storage,
+  whitelist: ['list'],
 }
 
 export default () => {
-  const reducer = persistCombineReducers(config, reducers)
+  const reducer = combineReducers({
+    redirectObjects: persistReducer(config, redirectObjects),
+    form,
+  })
 
   let store = createStore(reducer, applyMiddleware(logger))
   let persistor = persistStore(store)

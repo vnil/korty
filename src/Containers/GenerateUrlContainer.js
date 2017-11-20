@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateValue, setValid } from '../Redux/form' //TODO maybe name urlForm?
+import { updateValue, setValid } from '../Redux/form'
 import { generateUrl, resetNewlyGenerated } from '../Redux/redirectObjects'
 import GenerateUrl from '../Components/GenerateUrl'
 
