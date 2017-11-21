@@ -54,18 +54,6 @@ describe('makeUrl', () => {
   const mockCode = 'def456'
 
   it('should return full korty-url' , () => {
-    console.log(makeUrl(mockCode));
     expect(makeUrl(mockCode)).toEqual(window.location.href + mockCode)
   })
 })
-
-
-
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './App';
-//
-// it('renders without crashing', () => {
-//   const div = document.createElement('div');
-//   ReactDOM.render(<App />, div);
-// });
