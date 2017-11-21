@@ -15,15 +15,14 @@ export const isValidUrl = (potentialUrl) => {
   return !!isWebUri(potentialUrl)
 }
 
-export const generateUniqueUrlCode = (redirectObjects) => {
-  const existingCodes = redirectObjects.map(obj => obj.kortyCode)
-  const newCode = randomizeString()
+export const generateUniqueUrlCode = (existingCodes, randomizer = randomizeString) => {
+  const newCode = randomizer()
   if (existingCodes.includes(newCode)) {
-    return generateUniqueUrlCode(redirectObjects)
+    return generateUniqueUrlCode(existingCodes, randomizer)
   }
   return newCode
 }
 
 export const makeUrl = (kortyCode) => {
-  return window.location.host + '/' + kortyCode
+  return window.location.href + kortyCode
 }

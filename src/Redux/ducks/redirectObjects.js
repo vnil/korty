@@ -15,14 +15,14 @@ const initialState = {
 function listReducer(state = [], action = {}) {
   switch (action.type) {
     case GENERATE_URL:
-      const uniqueCode = generateUniqueUrlCode(state)
+      const uniqueCode = generateUniqueUrlCode(state.map(obj => obj.kortyCode))
       const newRedirectObject = {
         kortyCode: uniqueCode,
         targetUrl: action.targetUrl,
       }
       return [
-        ...state,
         newRedirectObject,
+        ...state,
       ]
     default:
       return state
