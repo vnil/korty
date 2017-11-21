@@ -19,7 +19,7 @@ class GenerateUrl extends Component {
   }
 
   render() {
-    const {value, updateValue, valid, setValid, generateUrl, newlyGenerated, resetNewlyGenerated} = this.props
+    const {value, updateValue, valid, setValid, newlyGenerated} = this.props
 
     return (
       <div className="GenerateUrl-container">
