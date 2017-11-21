@@ -1,10 +1,10 @@
 // Actions
-const UPDATE_VALUE = 'korty/form/update-value'
-const SET_VALID = 'korty/form/set-valid'
+export const UPDATE_VALUE = 'korty/form/update-value'
+export const SET_VALID = 'korty/form/set-valid'
 
 // Initial State
 const initialState = {
-  value: 'http://www.your-long-url.com/',
+  value: '',
   valid: true,
 }
 

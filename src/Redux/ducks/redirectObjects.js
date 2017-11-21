@@ -1,10 +1,8 @@
-//TODO: Rename reducer/file to redirects only?
-
 import { generateUniqueUrlCode } from '../../Helpers/urlHelpers'
 
 // Actions
-const GENERATE_URL = 'korty/redirect-objects/generate-url'
-const RESET_NEWLY_GENERATED = 'korty/redirect-objects'
+export const GENERATE_URL = 'korty/redirect-objects/generate-url'
+export const RESET_NEWLY_GENERATED = 'korty/redirect-objects'
 
 // Initial State
 const initialState = {
